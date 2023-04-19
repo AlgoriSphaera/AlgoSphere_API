@@ -25,13 +25,14 @@ public class JwtUtil {
 
         String encodedSecret = Base64.getEncoder().encodeToString(jwtSecret.getBytes());
         Date issueDate = new Date();
+        Date expDate = new Date(issueDate.getTime() + jwtExpirationMs);
 
         return Jwts.builder()
                 .setSubject(user.getEmail())
                     .claim("id", user.getId())
                     .claim("email", user.getEmail())
                     .setIssuedAt(issueDate)
-                    .setExpiration(new Date(issueDate.getTime() + jwtExpirationMs))
+                    .setExpiration(expDate)
                 .signWith(SignatureAlgorithm.HS512, encodedSecret)
                 .compact();
 
