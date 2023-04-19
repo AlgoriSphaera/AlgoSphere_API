@@ -1,0 +1,1 @@
+INSERT INTO "User" ("id", "email", "password") VALUES (nextval('UserSeq'), 'jevstignejevss@gmail.com', '$2a$10$1IABEPvtAwb3O/P2fAJx0.w0OZBH/Fxqhncsjpd73z/bbfl9Y.WVe')
